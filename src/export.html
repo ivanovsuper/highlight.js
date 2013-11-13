@@ -37,7 +37,7 @@ Copyright (c) Vladimir Gubarkov <xonixx@gmail.com>
                 } else { // try auto
                     viewDiv.innerHTML = '<pre><code>' + t1.value.escape() + "</code></pre>";
                 }
-                hljs.highlightBlock(viewDiv.firstChild.firstChild);
+                hljs.highlightBlock(viewDiv.firstChild.firstChild, null, false, true);
                 t2.value = viewDiv.innerHTML;
             }
 

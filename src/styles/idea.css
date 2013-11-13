@@ -10,6 +10,15 @@ pre code {
   background: #fff;
 }
 
+pre code ol {
+	margin:0;
+	list-style:decimal-leading-zero;
+}
+
+pre code ol li.selected {
+	background-color: #EFCBCB;
+}
+
 pre .subst,
 pre .title {
   font-weight: normal;

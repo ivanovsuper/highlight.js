@@ -97,6 +97,25 @@ styling:
 </script>
 ```
 
+## Line numbering
+
+You can add line numbering:
+
+```html
+<script type="text/javascript">
+  hljs.lineNumbers = true;
+  hljs.initHighlightingOnLoad();
+</script>
+```
+
+In this mode ou can specify `data-start` attribute from which numbering starts and `data-highlight`
+attribute - comma separated list of line numbers to be highlighted:
+
+```html
+<pre><code data-start="10" data-highlight="11,14">
+...
+```
+
 ## Custom initialization
 
 If you use different markup for code blocks you can initialize them manually

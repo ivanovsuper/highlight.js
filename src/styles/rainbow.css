@@ -13,6 +13,15 @@ pre code {
 }
 
 
+pre code ol {
+	margin:0;
+	list-style:decimal-leading-zero;
+}
+
+pre code ol li.selected {
+	background-color: #4F1111;
+}
+
 pre .body,
 pre .collection {
    color: #D1D9E1;

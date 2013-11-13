@@ -41,6 +41,9 @@ function() {
       }
     }
   }
+  function blockAttr(block, attr){
+    return block.getAttribute(attr);
+  }
 
   /* Stream merging */
 
@@ -470,10 +473,56 @@ function() {
   }
 
   /*
-  Applies highlighting to a DOM node containing code. Accepts a DOM node and
-  two optional parameters for fixMarkup.
+  Adding line numbers by slitting highlighted markup by \n by converting into ordered numbered list ol+li.
   */
-  function highlightBlock(block, tabReplace, useBR) {
+  function addLineNumbers(node, startLine, highlightLines) {
+    function htmlEncode(markup) {
+      var e = document.createElement('div');
+      e.textContent = markup;
+      return e.innerHTML;
+    }
+    function outerHTML(el){
+      var e = document.createElement('div');
+      e.appendChild(el);
+      return e.innerHTML;
+    }
+    var items = node.childNodes;
+    var total = items.length;
+    var result = '';
+    for (var i=0;i<total;i++) {
+      var itm = items[i];
+      if (itm.nodeType == 3) {
+        result += htmlEncode(itm.textContent);
+      } else {
+        var strs = itm.innerHTML.split(/\n/);
+        for (var j = 0; j < strs.length; j++) {
+          var str = strs[j];
+          if (i != total - 1 || j != strs.length - 1 || str != '') {
+            var clone = itm.cloneNode();
+            clone.innerHTML = str;
+            var outerhtml = outerHTML(clone);
+            result += outerhtml + (j < strs.length - 1 ? '\n' : '');
+          }
+        }
+      }
+    }
+    var r = "";
+    var lines = result.split('\n');
+    highlightLines = highlightLines || [];
+    startLine = startLine || 1;
+    for(var i=0;i<lines.length;i++) {
+      var line = lines[i];
+      if (line != '' || i != lines.length - 1) {
+        r += "<li"+(highlightLines.indexOf(""+(i+startLine))>=0?" class='selected'":"")+">" + line + "</li>";
+      }
+    };
+    return "<ol start='"+(startLine||1)+"'>" + r + "</ol>";
+  }
+  /*
+  Applies highlighting to a DOM node containing code. Accepts a DOM node and
+  two optional parameters for fixMarkup and parameter to enable line numbering.
+  */
+  function highlightBlock(block, tabReplace, useBR, lineNumbers) {
     var text = blockText(block, useBR);
     var language = blockLanguage(block);
     if (language == 'no-highlight')
@@ -486,7 +535,7 @@ function() {
       pre.innerHTML = result.value;
       result.value = mergeStreams(original, nodeStream(pre), text);
     }
-    result.value = fixMarkup(result.value, tabReplace, useBR);
+    result.value = fixMarkup(result.value, tabReplace, useBR&&!lineNumbers);
 
     var class_name = block.className;
     if (!class_name.match('(\\s|^)(language-)?' + language + '(\\s|$)')) {
@@ -494,6 +543,17 @@ function() {
     }
     block.innerHTML = result.value;
     block.className = class_name;
+    if (lineNumbers)
+    {
+      var startLine = parseInt(blockAttr(block,"data-start") || "1");
+      startLine = isNaN(startLine)?1:startLine;
+      var highlightLines = blockAttr(block,"data-highlight");
+      if (highlightLines)
+      {
+        highlightLines = highlightLines.split(',');
+      }
+      block.innerHTML = addLineNumbers(block, startLine, highlightLines);
+    }
     block.result = {
       language: language,
       kw: result.keyword_count,
@@ -517,7 +577,7 @@ function() {
     initHighlighting.called = true;
     Array.prototype.map.call(document.getElementsByTagNameNS('http://www.w3.org/1999/xhtml', 'pre'), findCode).
       filter(Boolean).
-      forEach(function(code){highlightBlock(code, hljs.tabReplace);});
+      forEach(function(code){highlightBlock(code, hljs.tabReplace, null, hljs.lineNumbers);});
   }
 
   /*

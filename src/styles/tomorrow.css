@@ -38,6 +38,15 @@ pre code {
   padding: 0.5em;
 }
 
+pre code ol {
+	margin:0;
+	list-style:decimal-leading-zero;
+}
+
+pre code ol li.selected {
+	background-color: #EFCBCB;
+}
+
 pre .coffeescript .javascript,
 pre .javascript .xml,
 pre .tex .formula,

@@ -9,6 +9,15 @@ pre code {
   background: #000080;
 }
 
+pre code ol {
+	margin:0;
+	list-style:decimal-leading-zero;
+}
+
+pre code ol li.selected {
+	background-color: #4F1111;
+}
+
 pre code,
 pre .subst {
   color: #0FF;

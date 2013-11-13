@@ -9,6 +9,13 @@ pre code {
   padding: 0.5em;
   background: #23241f;
 }
+pre code ol {
+	margin:0;
+	list-style:decimal-leading-zero;
+}
+pre code ol li.selected {
+	background-color: #4F1111;
+}
 pre .tag,
 pre code {
   color: #f8f8f2;

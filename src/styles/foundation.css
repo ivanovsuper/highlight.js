@@ -11,6 +11,15 @@ pre code {
   background: #eee;
 }
 
+pre code ol {
+	margin:0;
+	list-style:decimal-leading-zero;
+}
+
+pre code ol li.selected {
+	background-color: #EFCBCB;
+}
+
 pre .header,
 pre .decorator,
 pre .annotation {

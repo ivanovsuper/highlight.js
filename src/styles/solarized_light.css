@@ -9,6 +9,15 @@ pre code {
   background: #fdf6e3; color: #657b83;
 }
 
+pre code ol {
+	margin:0;
+	list-style:decimal-leading-zero;
+}
+
+pre code ol li.selected {
+	background-color: #EFCBCB;
+}
+
 pre .comment,
 pre .template_comment,
 pre .diff .header,

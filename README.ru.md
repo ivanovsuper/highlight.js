@@ -101,6 +101,25 @@ require(["highlight.js/build/highlight.pack"], function(hljs){
 ```
 
 
+## Нумерация строк
+
+Также вы можете добавить нумерацию строк:
+
+```html
+<script type="text/javascript">
+  hljs.lineNumbers = true;
+  hljs.initHighlightingOnLoad();
+</script>
+```
+
+В в режиме нумерации строк доступны также еще два атрибута `data-start` - номер начала нумерации 
+строк массив строк, а также `data-highlight` - через запятую номера строк, которые будут выделены:
+
+```html
+<pre><code data-start="10" data-highlight="11,14">
+...
+```
+
 ## Инициализация вручную
 
 Если вы используете другие теги для блоков кода, вы можете инициализировать их

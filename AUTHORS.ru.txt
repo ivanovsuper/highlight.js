@@ -17,7 +17,7 @@ URL:   http://highlightjs.org/
 - Никита Ледяев <lenikita@yandex.ru>
 - Константин Евдокименко <qewerty@gmail.com>
 - Дмитрий Рудаков <dmitri@roudakov.ru>
-- Юрий Иванов <ivanov@supersoft.ru>
+- Юрий Иванов <ivanovsuper@gmail.com>
 - Владимир Ермаков <vooon341@mail.ru>
 - Владимир Губарьков <xonixx@gmail.com>
 - Брайан Бек <exogen@gmail.com>

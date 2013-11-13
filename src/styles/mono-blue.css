@@ -6,6 +6,15 @@ pre code {
   background: #EAEEF3; color: #00193A;
 }
 
+pre code ol {
+	margin:0;
+	list-style:decimal-leading-zero;
+}
+
+pre code ol li.selected {
+	background-color: #EFCBCB;
+}
+
 pre .keyword,
 pre .title,
 pre .important,

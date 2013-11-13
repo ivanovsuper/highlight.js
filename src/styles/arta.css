@@ -9,6 +9,15 @@ pre code
   background: #222;
 }
 
+pre code ol {
+	margin:0;
+	list-style:decimal-leading-zero;
+}
+
+pre code ol li.selected {
+	background-color: #4F1111;
+}
+
 pre .profile .header *,
 pre .ini .title,
 pre .nginx .title

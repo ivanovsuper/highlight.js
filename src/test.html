@@ -101,6 +101,7 @@
   <script src="../build/highlight.pack.js"></script>
   <script>
   hljs.tabReplace = '    ';
+  hljs.lineNumbers = true;
   hljs.initHighlightingOnLoad();
   </script>
 
@@ -2682,7 +2683,7 @@ end;</code></pre>
 <div id="codecontainer" class="code">for x in [1, 2, 3]:<br>
 &nbsp;&nbsp;count(x)<br>
 </div>
-<script>hljs.highlightBlock(document.getElementById('codecontainer'), null, true);</script>
+<script>hljs.highlightBlock(document.getElementById('codecontainer'), null, true, true);</script>
 
   <tr>
     <th>Disabled highlighting
@@ -2698,3 +2699,38 @@ end;</code></pre>
 <pre><samp>Computer output</samp></pre>
 
 </table>
+<h2>Line numbering extra</h2>
+
+<table>
+  <tr>
+    <th>Numbering from 10<br>data-start="10"
+    <td>
+<pre><code class="javascript" data-start="10">$(document).on("click", ".back", function(e){
+  window.history.back();
+  e.preventDefault();
+  e.stopPropagation();
+  alert(b);
+});
+</code></pre>
+  <tr>
+    <th>Highlight lines 3 and 5<br>data-highlight="3,5"
+    <td>
+<pre><code class="javascript" data-highlight="3,5">$(document).on("click", ".back", function(e){
+  window.history.back();
+  e.preventDefault();
+  e.stopPropagation();
+  alert(b);
+});
+</code></pre>
+  <tr>
+    <th>Lines from 13,<br>15 line highlighted
+    <td>
+<pre><code class="javascript" data-start="13" data-highlight="15">$(document).on("click", ".back", function(e){
+  window.history.back();
+  e.preventDefault();
+  e.stopPropagation();
+  alert(b);
+});
+</code></pre>
+</table>
+

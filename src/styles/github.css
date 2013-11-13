@@ -10,6 +10,15 @@ pre code {
   background: #f8f8ff
 }
 
+pre code ol {
+	margin:0;
+	list-style:decimal-leading-zero;
+}
+
+pre code ol li.selected {
+	background-color: #EFCBCB;
+}
+
 pre .comment,
 pre .template_comment,
 pre .diff .header,

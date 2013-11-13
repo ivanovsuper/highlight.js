@@ -10,6 +10,15 @@ pre code {
   line-height:16px !important;
 }
 
+pre code ol {
+	margin:0 0 0 -40px;
+	list-style:decimal-leading-zero;
+}
+
+pre code ol li.selected {
+	background-color: rgba(79, 17, 17, 0.350);
+}
+
 pre{
   background:#f6f6ae url(./school_book.png);
   border-top: solid 2px #d2e8b9;

@@ -11,6 +11,15 @@ pre code {
   color: #DCDCDC;
 }
 
+pre code ol {
+	margin:0;
+	list-style:decimal-leading-zero;
+}
+
+pre code ol li.selected {
+	background-color: #4F1111;
+}
+
 pre .keyword,
 pre .tag,
 pre .css .class,

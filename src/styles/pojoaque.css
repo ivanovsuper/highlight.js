@@ -12,6 +12,15 @@ pre code {
   background: url(./pojoaque.jpg) repeat scroll left top #181914;
 }
 
+pre code ol {
+	margin:0;
+	list-style:decimal-leading-zero;
+}
+
+pre code ol li.selected {
+	background-color: #4F1111;
+}
+
 pre .comment,
 pre .template_comment,
 pre .diff .header,
